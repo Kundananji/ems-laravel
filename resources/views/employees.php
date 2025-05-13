@@ -16,6 +16,9 @@
             <th>
                 Email Address
             </th>
+            <th>
+                Department
+            </th>
         </thead>
         <tbody>
             <?php
@@ -36,6 +39,9 @@
                     </td>
                     <td>
                     <?php echo $employee->Email_Address?>
+                    </td>
+                     <td>
+                    <?php echo $employee->department?>
                     </td>
                 </tr>
 

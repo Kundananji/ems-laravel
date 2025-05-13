@@ -31,6 +31,11 @@ class EmployeeController extends Controller
             );
         */
 
+        $department = Employee::all()[0]->department();
+        dd(
+          $department->Name
+        );
+
        
         return view("employees",[
             "employees"=>Employee::all()
