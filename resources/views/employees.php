@@ -41,7 +41,7 @@
                     <?php echo $employee->Email_Address?>
                     </td>
                      <td>
-                    <?php echo $employee->department?>
+                    <?php echo $employee->department->Name?>
                     </td>
                 </tr>
 

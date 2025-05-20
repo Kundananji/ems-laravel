@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Employee extends Model
 {
@@ -14,9 +14,9 @@ class Employee extends Model
      /**
      * Get the department associated with the employee.
      */
-    public function department(): HasOne
+    public function department(): BelongsTo
     {
-        return $this->hasOne(Department::class);
+        return $this->belongsTo(Department::class,'Department_Id');
     }
 }
 
