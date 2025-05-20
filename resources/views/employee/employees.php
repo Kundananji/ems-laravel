@@ -2,7 +2,9 @@
     <h1>Hello World</h1>
     <p>This page lists employees</p>
 
-    <table>
+    <a href="create">Add Employee</a>
+
+    <table border="1" cellspacing="0" cellpadding="5">
         <thead>
             <th>
 
@@ -18,6 +20,9 @@
             </th>
             <th>
                 Department
+            </th>
+            <th>
+                Supervisor
             </th>
         </thead>
         <tbody>
@@ -42,6 +47,9 @@
                     </td>
                      <td>
                     <?php echo $employee->department->Name?>
+                    </td>
+                    <td>
+                    <?php echo $employee->supervisor?->Name?>
                     </td>
                 </tr>
 

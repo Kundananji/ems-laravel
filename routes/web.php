@@ -7,5 +7,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Employees
-Route::get('/employees',[EmployeeController::class,'index']);
+//View Employees
+Route::get('/employees/view',[EmployeeController::class,'index']);
+
+
+//Get Employee Form
+Route::get('/employees/create',[EmployeeController::class,'create']);
+
+
+//Save Employee Form
+Route::get('/employees/save',[EmployeeController::class,'save']);

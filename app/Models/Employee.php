@@ -12,6 +12,17 @@ class Employee extends Model
     //
     protected $table="employee";
 
+    protected $fillable = [
+          
+                                "Man_No",
+                                "Name",
+                                "Email_Address",
+                                "Department_Id",
+                                "Supervisor"
+                        
+
+    ];
+
 
      /**
      * Get the department associated with the employee.
