@@ -16,4 +16,4 @@ Route::get('/employees/create',[EmployeeController::class,'create']);
 
 
 //Save Employee Form
-Route::get('/employees/save',[EmployeeController::class,'save']);
+Route::post('/employees/save',[EmployeeController::class,'save']);

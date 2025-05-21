@@ -7,21 +7,21 @@ use App\Models\Employee;
 
 class EmployeeController extends Controller
 {
-        //
-        function index()
-        {
+    //
+    function index()
+    {
 
-                $employee = new Employee();
+        $employee = new Employee();
 
-                $employee->setAttribute('Man_No', '3883');
-                $employee->setAttribute('Name', 'Michael Sinkolongo');
-                $employee->setAttribute('Email_Address', 'michaelsinkolongo@gmail.com');
-
-
-                // $employee->save();
+        $employee->setAttribute('Man_No', '3883');
+        $employee->setAttribute('Name', 'Michael Sinkolongo');
+        $employee->setAttribute('Email_Address', 'michaelsinkolongo@gmail.com');
 
 
-                /*
+        // $employee->save();
+
+
+        /*
         Employee::create(
               [
                 "Man_No"=>"3883",
@@ -32,30 +32,30 @@ class EmployeeController extends Controller
             );
         */
 
-                //$department = Employee::all()[0]->department();
-                /*dd(
+        //$department = Employee::all()[0]->department();
+        /*dd(
           $department->Name
         );*/
 
-                $employee = Employee::with('department')->first(); // load the relation
-                // dd($employee->department?->Name); //Correct: access the loaded related model's Name
+        $employee = Employee::with('department')->first(); // load the relation
+        // dd($employee->department?->Name); //Correct: access the loaded related model's Name
 
 
 
-                return view("employee/employees", [
-                        "employees" => Employee::all()
-                ]);
-        }
+        return view("employee/employees", [
+            "employees" => Employee::all()
+        ]);
+    }
 
-        function create()
-        {
-                return view("employee/create");
-        }
+    function create()
+    {
+        return view("employee/create");
+    }
 
 
-        function save(Request $request)
-        {
-                /*
+    function save(Request $request)
+    {
+        /*
 
                 $manNo = $request['ManNo'];
                 $name = $request['Name'];
@@ -64,15 +64,27 @@ class EmployeeController extends Controller
                 $supervisor = $request['Supervisor'];
                 */
 
+                /*
+        $validated = $request->validate([
+            'ManNo' => 'required|string|max:255',
+            'Name' => 'required|string|max:255',
+            'EmailAddress' => 'required|email|max:255|unique:employees,EmailAddress',
+            'Department' => 'required|string|max:255',
+            'Supervisor' => 'nullable|string|max:255',
+        ]);*/
 
-                $employee = Employee::create(
-                      $request->all()
-                );
 
-                //dd($request['ManNo']);
+        $employee = Employee::create(
+            $request->all()
+        );
 
-                return view("employee/create", [
-                        "employee" => $employee
-                ]);
-        }
+        //dd($request['ManNo']);
+
+        /*
+        return view("employee/create", [
+            "employee" => $employee
+        ]);*/
+        return redirect('/employees/create')->with('success', 'Employee successfully added!');
+
+    }
 }
