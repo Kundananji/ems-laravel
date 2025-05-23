@@ -63,27 +63,27 @@ class EmployeeController extends Controller
                 $department = $request['Department'];
                 $supervisor = $request['Supervisor'];
                 */
+       // $manNo = $request->input('Man_No');
 
-                /*
-        $validated = $request->validate([
-            'ManNo' => 'required|string|max:255',
-            'Name' => 'required|string|max:255',
-            'EmailAddress' => 'required|email|max:255|unique:employees,EmailAddress',
-            'Department' => 'required|string|max:255',
-            'Supervisor' => 'nullable|string|max:255',
-        ]);*/
+    
+      
+                
+         $request->validate([
+             'Man_No' => 'bail|required|string|max:4',
+             'Name' => 'bail|required|string|max:255',
+             'Email_Address' => 'bail|required|email|max:255|unique:employee',
+             'Department_Id' => 'bail|required|integer',
+             'Supervisor' => 'nullable|integer',
+        ]);
+
+        
 
 
         $employee = Employee::create(
             $request->all()
         );
 
-        //dd($request['ManNo']);
-
-        /*
-        return view("employee/create", [
-            "employee" => $employee
-        ]);*/
+    
         return redirect('/employees/create')->with('success', 'Employee successfully added!');
 
     }
