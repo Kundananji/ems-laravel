@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Department;
 
 class EmployeeController extends Controller
 {
@@ -49,7 +50,10 @@ class EmployeeController extends Controller
 
     function create()
     {
-        return view("employee/create");
+        $departments = Department::all();
+        return view("employee/create",[
+            "departments"=>$departments
+        ]);
     }
 
 

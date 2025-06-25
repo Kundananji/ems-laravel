@@ -65,7 +65,24 @@
 
         <div class="form-group">
             <label for="Department_Id">Department</label>
-            <input type="text" name="Department_Id" class="form-control" placeholder="Department ID" value="<?php echo old("Department_Id") ?>">
+            <?php
+             /*
+            ?>
+            <input type="text"placeholder="Department ID" value="<?php echo old("Department_Id") ?>">            
+            */
+            ?>
+            <select  name="Department_Id" class="form-control" >
+                <option value="">Select Department</option>
+                <?php
+                 foreach($departments as $department){
+                ?>
+                  <option value="<?php echo $department->Id?>" <?php echo old("Department_Id")==$department->Id?" selected":"" ?>> <?php echo $department->Name?></option>
+
+                <?php
+                 }
+                ?>
+
+            </select>
         </div>
 
         <div class="form-group">
