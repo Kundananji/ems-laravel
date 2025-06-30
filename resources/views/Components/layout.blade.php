@@ -34,17 +34,24 @@
 
 
     <!-- Custom styles for this template -->
-    <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
+    <link href="{{asset('css/dashboard.css')}}" rel="stylesheet"> 
+ 
 </head>
 
 <body>
 
-    <x-topnav></x-topnav>
+    <x-topnav>
+
+    </x-topnav>
 
     <div class="container-fluid">
         <div class="row">
 
-            <x-sidebar></x-sidebar>
+            @auth
+                <x-sidebar>
+                
+                </x-sidebar>
+            @endauth
 
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 {{ $slot }}
