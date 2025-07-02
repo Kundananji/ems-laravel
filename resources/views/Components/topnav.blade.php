@@ -7,7 +7,7 @@
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
       @auth
-         <a class="nav-link px-3" href="#">Sign out</a>
+         <a class="nav-link px-3" href="{{ route('logout') }}">Sign out</a>
       @endauth      
     </div>
   </div>
