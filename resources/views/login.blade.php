@@ -48,6 +48,14 @@
                             Login
                         </button>
 
+                        <div style="clear:right"></div>
+
+                        <hr>
+
+                         Don't Have an Account? <a href="/register" class="text-sm text-blue-500 hover:underline">
+                                Register
+                            </a>
+
                     </form>
                 </div> <!--//end card body-->
             </div> <!--//end card -->

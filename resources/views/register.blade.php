@@ -12,15 +12,8 @@
         <div class="col-sm-12 col-md-6">
             <div class="card">
                 <div class="card-body p-3">
-                    <form method="POST" action="{{ route('login') }}" class="">
-                        @csrf
-                        <div class="form-group mt-3">
-                            <label for="manNo" class="">Man No</label>
-                            <input type="text" name="manNo" id="manNo" required class="form-control">
-                            @error('manNo')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
-                            @enderror
-                        </div>
+                    <form method="POST" action="{{ route('register-user') }}" class="">
+                        @csrf                     
 
                         <div class="form-group mt-3">
                             <label for="name" class="">Name</label>
@@ -50,6 +43,15 @@
                         <button type="submit" class="btn btn-primary mt-2 float-end">
                             Register
                         </button>
+
+                        <div style="clear:both"></div>
+
+                        <hr>
+
+                         Already have an Account? <a href="{{ route("login") }}" class="text-sm text-blue-500 hover:underline">
+                                Login
+                            </a>
+
 
                     </form>
                 </div> <!--//end card body-->
