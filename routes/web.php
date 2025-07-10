@@ -19,6 +19,12 @@ Route::post('/login', [AuthenticationController::class,'authenticate']);
 Route::get('/logout', [AuthenticationController::class,'logout'])->name("logout");
 
 
+//Registration routes
+Route::get('/register', [AuthenticationController::class, 'register'])->name('register');
+Route::post('/register',[EmployeeController::class, 'save']);
+
+
+
 
 
 //View Employees

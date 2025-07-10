@@ -8,31 +8,38 @@ use Illuminate\Support\Facades\Auth;
 class AuthenticationController extends Controller
 {
     //
-    function login(Request $request){
+    function login(Request $request)
+    {
 
         return view("login");
     }
 
 
-        function authenticate(Request $request){
+    function authenticate(Request $request)
+    {
 
-           if(Auth::attempt([
-             "email"=>$request->input("email"),
-              "password"=>$request->input("password")
-           ])){
+        if (Auth::attempt([
+            "email" => $request->input("email"),
+            "password" => $request->input("password")
+        ])) {
 
-              return redirect("home");
+            return redirect("home");
+        }
 
-           }
-        
+
+
         return view("login");
     }
 
 
-     function logout(){
+    function logout()
+    {
         Auth::logout();
         return redirect("login");
-     }
+    }
 
-
+    function register(Request $request)
+    {
+        return view("register");
+    }
 }
