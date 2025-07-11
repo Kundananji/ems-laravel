@@ -27,8 +27,7 @@ class AuthenticationController extends Controller
             return redirect("home");
         }
 
-
-
+        $request->session()->flash("error", "Invalid credentials");
         return view("login");
     }
 
@@ -47,16 +46,23 @@ class AuthenticationController extends Controller
     function saveUser(Request $request)
     {
 
-      
+        $request->validate([
+             'name' => 'bail|required|string|max:255',
+             'email' => 'bail|required|email|max:255|unique:employee',
+             'password' => 'bail|required|password|min:8',
+        ]);
+
+
         User::create(
             [
             'name' => $request->input('name'),
-            'email' => $request->input('email'), 
+            'email' => $request->input('email'),
             'profile'=>'employee',
-            'password' => $request->input('password')
+            'password' => bcrypt($request->input('password'))
             ]
 
         );
-        return view("register");
+        //$request->session()->flash("success", "User registered successfully");
+        return redirect()->route('login')->with('success', 'User registered successfully');
     }
 }

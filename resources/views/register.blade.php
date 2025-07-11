@@ -6,14 +6,27 @@
         </div>
     @endif
 
+    @if (session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
+
     <div class="row mt-5">
 
         <!-- Login Form -->
         <div class="col-sm-12 col-md-6">
             <div class="card">
                 <div class="card-body p-3">
+                    @if($errors->any())
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li class="text-red-500 text-sm">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    @endif
                     <form method="POST" action="{{ route('register-user') }}" class="">
-                        @csrf                     
+                        @csrf
 
                         <div class="form-group mt-3">
                             <label for="name" class="">Name</label>
