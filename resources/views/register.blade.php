@@ -21,27 +21,30 @@
                     @if($errors->any())
                     <ul>
                         @foreach($errors->all() as $error)
-                            <li class="text-red-500 text-sm">{{ $error }}</li>
+                            <li class="text-danger text-sm">{{ $error }}</li>
                         @endforeach
                     </ul>
                     @endif
                     <form method="POST" action="{{ route('register-user') }}" class="">
                         @csrf
-
                         <div class="form-group mt-3">
                             <label for="name" class="">Name</label>
-                            <input type="name" name="name" id="name" required class="form-control">
+                            <input type="name" 
+                            name="name" 
+                            id="name" 
+                            required autofocus 
+                            class="form-control @error('name')border border-danger @enderror">
                             @error('name')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                <p class="text-danger text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="email" class="">Email</label>
-                            <input type="email" name="email" id="email" required autofocus class="form-control"
+                            <input type="email" name="email" id="email" required class="form-control"
                                 value="{{ old('email') }}">
                             @error('email')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                <p class="text-danger text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </div>
 
@@ -49,7 +52,15 @@
                             <label for="password" class="">Password</label>
                             <input type="password" name="password" id="password" required class="form-control">
                             @error('password')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                                <p class="text-danger text-sm mt-1">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="password_confirmed" class="">Confirm Password</label>
+                            <input type="password" name="password_confirmation" id="password_confirmation" required class="form-control">
+                            @error('password_confirmation')
+                                <p class="text-danger text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </div>
 

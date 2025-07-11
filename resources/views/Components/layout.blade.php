@@ -7,12 +7,9 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Dashboard Template · Bootstrap v5.0</title>
+    <title>EMS</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
-
-
-
+  
     <!-- Bootstrap core CSS -->
     <link href="{{asset("css/bootstrap.min.css")}}" rel="stylesheet">
 
@@ -53,7 +50,7 @@
                 </x-sidebar>
             @endauth
 
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <main class="@auth col-md-9 ms-sm-auto col-lg-10 px-md-4 @endauth @guest col-md-12 col-lg-12 px-md-4 @endguest">
                 {{ $slot }}
             </main>
 

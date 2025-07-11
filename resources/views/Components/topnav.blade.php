@@ -5,16 +5,19 @@
   </button>
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav me-2 mb-2 mb-lg-0 flex-row">
+    @guest
         <li class="nav-item px-3">
            <a class="nav-link px-3" href="{{ route('login') }}">Login</a>
         </li>
         <li class="nav-item">
                <a class="nav-link px-3" href="{{ route('register') }}">Register</a>
         </li>
+      @endguest
+
       @auth
         <li class="nav-item text-nowrap">
          <a class="nav-link px-3" href="{{ route('logout') }}">Sign out</a>
-        </li>
+        </li> 
       @endauth      
 
       </ul>

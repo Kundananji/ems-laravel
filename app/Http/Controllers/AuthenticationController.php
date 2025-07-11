@@ -48,9 +48,13 @@ class AuthenticationController extends Controller
 
         $request->validate([
              'name' => 'bail|required|string|max:255',
-             'email' => 'bail|required|email|max:255|unique:employee',
-             'password' => 'bail|required|password|min:8',
+             'email' => 'bail|required|email|max:255|unique:users',
+             'password' => 'bail|required|confirmed',
         ]);
+
+        if(preg_match('/adfsfdf/',$request->input('password'))){
+            //ToDo how to throw back a custom validation error
+        }
 
 
         User::create(
@@ -63,6 +67,6 @@ class AuthenticationController extends Controller
 
         );
         //$request->session()->flash("success", "User registered successfully");
-        return redirect()->route('login')->with('success', 'User registered successfully');
+        return redirect()->route('login')->with('success', 'Your account has been successfully created. Login below:');
     }
 }

@@ -7,7 +7,7 @@
     @endif
 
     @if (session('success'))
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+        <div class="alert alert-success mt-3">
             {{ session('success') }}
         </div>
     @endif
@@ -15,7 +15,7 @@
     <div class="row mt-5">
 
         <!-- Login Form -->
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-body p-3">
                     <form method="POST" action="{{ route('login') }}" class="">
@@ -66,7 +66,7 @@
         </div> <!--//end column-->
 
 
-        <div class="col-md-6 d-md-block d-none">
+        <div class="col-md-8 d-md-block d-none">
             <div class="card">
                 <div class="card-body p-3">
                     <h1 class="text-2xl font-bold mb-4">Welcome to EMS</h1>
