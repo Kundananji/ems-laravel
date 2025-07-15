@@ -10,14 +10,18 @@ Route::get('/', function () {
 })->middleware('auth');
 
 
+//Login routes
 Route::get('/login', [AuthenticationController::class,'login'])->name('login');
-
-
 Route::post('/login', [AuthenticationController::class,'authenticate']);
-
-
 Route::get('/logout', [AuthenticationController::class,'logout'])->name("logout");
 
+//Forgot Password routes
+Route::get('/forgot', [AuthenticationController::class,'forgot'])->name('forgot');
+Route::post('/forgot-request', [AuthenticationController::class,'forgotPassword'])->name('forgot-request');
+
+Route::get('/reset', [AuthenticationController::class,'reset'])->name('reset');
+
+Route::get('/complete-reset', [AuthenticationController::class,'completeReset'])->name('complete-reset');
 
 //Registration routes
 Route::get('/register', [AuthenticationController::class, 'register'])->name('register');

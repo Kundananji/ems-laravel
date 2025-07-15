@@ -18,46 +18,40 @@
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-body p-3">
-                    <form method="POST" action="{{ route('login') }}" class="">
+                    <form method="POST" action="{{ route('complete-reset') }}" class="">
                         @csrf
-                        <div class="form-group">
-                            <label for="email" class="">Email</label>
-                            <input type="email" name="email" id="email" required autofocus class="form-control"
-                                value="{{ old('email') }}">
-                            @error('email')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                           <input type="hidden" name="token" id="token" class="form-control"
+                                value="{{ $token}}">
+
+                         <div class="form-group mt-3">
+                            <label for="password" class="">Password</label>
+                            <input type="password" name="password" id="password" required class="form-control">
+                            @error('password')
+                                <p class="text-danger text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <div class="form-group mt-3">
-                            <label for="password" class="">Password</label>
-                            <input type="password" name="password" id="password" required class="form-control">
-                            @error('password')
-                                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                            <label for="password_confirmed" class="">Confirm Password</label>
+                            <input type="password" name="password_confirmation" id="password_confirmation" required class="form-control">
+                            @error('password_confirmation')
+                                <p class="text-danger text-sm mt-1">{{ $message }}</p>
                             @enderror
                         </div>
 
-                        <div class="mt-2">
-                            <label>
-                                <input type="checkbox" name="remember" class="mr-2">
-                                <span class="text-sm">Remember Me</span>
-                            </label>
-
-                            <a href="{{ route("forgot") }}" class="text-sm text-blue-500 hover:underline">
-                                Forgot Password?
-                            </a>
-                        </div>
+   
+                       
 
                         <button type="submit" class="btn btn-primary mt-2 float-end">
-                            Login
+                            Reset
                         </button>
 
                         <div style="clear:right"></div>
 
                         <hr>
 
-                         Don't Have an Account? <a href="/register" class="text-sm text-blue-500 hover:underline">
-                                Register
+                         Already have an account? <a href="/login" class="text-sm text-blue-500 hover:underline">
+                                Login
                             </a>
 
                     </form>
